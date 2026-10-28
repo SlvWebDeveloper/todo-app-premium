@@ -184,6 +184,43 @@ This project was built to practice and demonstrate:
 - Automated end-to-end tests.
 - Enhanced account settings and task organization.
 
+## Key Technical Highlights
+
+### Authentication and Data Security
+- Integrated Supabase Authentication for account registration and login.
+- Implemented Row Level Security (RLS) policies to restrict task access to the authenticated user.
+- Scoped database operations by user ID.
+
+### State Management
+- Used React Context to share task, authentication, theme, and sidebar state across components.
+- Implemented asynchronous CRUD operations with Supabase.
+- Added loading states and error notifications for database operations.
+
+### Dashboard and User Experience
+- Built a dashboard with task statistics, completion progress, and priority distribution.
+- Implemented task search, filtering, sorting, and deadline tracking.
+- Created reusable UI components for task cards, modals, notifications, and navigation.
+- Added responsive layouts and light/dark theme support.
+
+## Testing and Code Quality
+
+- Added unit tests for date utility functions using Vitest.
+- Used a production build to validate the application before deployment.
+- Configured environment variables for Supabase integration.
+- Deployed the application on Vercel with GitHub integration.
+
+## Architecture Overview
+
+The application separates its responsibilities into distinct layers:
+
+- **Components:** UI elements, dashboard, navigation, and task modals.
+- **Context:** shared state and authentication.
+- **Supabase client:** communication with the backend.
+- **Utilities:** date calculations and reusable helper functions.
+
+This structure helps keep the interface modular and makes the application easier to maintain and extend.
+
+
 ## Author
 
 **SlvWebDeveloper**
