@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
 import { SidebarContext } from '../context/SidebarContext';
 import { image, sidebarItems } from '../assets/data';
-import { LogOut, User, X } from 'lucide-react';
+import { User, X } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 const Sidebar = () => {
 
   const { isOpenSidebar, closeSidebar, selectedView, setSelectedView } = useContext( SidebarContext );
+
+  const { user } = useAuth();
+
   return (
     <>
       <div className={ `${isOpenSidebar ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed lg:static inset-y-0 left-0 z-40 w-64 lg:w-80 bg-white dark:bg-gray-900/90 border-r border-gray-200 dark:border-gray-600 flex flex-col transition-transform duration-300 h-screen` }>
@@ -45,23 +49,23 @@ const Sidebar = () => {
         </div>
 
         {/* user section */ }
-        <div className='flex items-center gap-2.5 py-5 px-3'>
-          <div className='w-10 h-10 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex justify-center items-center cursor-pointer hover:scale-105 transition-transform ml-2 shadow-lg active:scale-95'>
-            <User className='w-5 h-5 text-white' />
+
+        {/* user section */ }
+        <div className="flex items-center gap-2.5 border-t border-gray-200 px-3 py-5 dark:border-gray-600">
+          <div className="ml-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
+            <User className="h-5 w-5 text-white" />
           </div>
-          <div>
-            <p className='text-gray-900 dark:text-gray-100 truncate'>Silvio Ferrentino</p>
-            <p className='text-gray-500 dark:text-gray-400 truncate'>silvioferrentino@libero.it</p>
+
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-sm font-medium text-gray-900 dark:text-gray-100">
+              { user?.user_metadata?.full_name || user?.email?.split( '@' )[0] || 'Utente' }
+            </p>
+            <p className="truncate text-xs text-gray-500 dark:text-gray-400">
+              { user?.email || '' }
+            </p>
           </div>
         </div>
 
-        {/* logout button */ }
-        <div className='px-3 py-5'>
-          <button className='w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors'>
-            <LogOut className='w-5 h-5' />
-            <span>Logout</span>
-          </button>
-        </div>
 
       </div>
 

@@ -1,5 +1,25 @@
 # Todo App Premium
 
+
+<p align="center">
+  <img
+    src="screenshots/dashboard-light.png"
+    alt="Todo App Premium dashboard showing task statistics, progress tracking, and priority distribution"
+    width="100%"
+  />
+</p>
+
+<p align="center">
+  <a href="https://todo-app-premium-two.vercel.app/">
+    <strong>Live Demo</strong>
+  </a>
+  ·
+  <a href="https://github.com/SlvWebDeveloper/todo-app-premium">
+    <strong>Source Code</strong>
+  </a>
+</p>
+
+
 A modern task management web application built with React, Vite, Tailwind CSS, and Supabase. Organize daily tasks, track deadlines, manage priorities, and keep your data synchronized with a cloud database.
 
 **Live Demo:** [Todo App Premium](https://todo-app-premium-two.vercel.app/)
